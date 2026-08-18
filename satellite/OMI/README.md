@@ -27,9 +27,9 @@ https://avdc.gsfc.nasa.gov/pub/data/satellite/Aura/OMI/V03/L2OVP/
 The script downloads AVDC files automatically (no auth needed).
 
 **Note:** the local `satellite_aura_omi_l2ovp_omo3pr_sodankyla.h5` file already contains
-**10826 profiles spanning 2004-10-01 to 2021-02-28** — the full historical OMI profile record
-at Sodankyla in one file. `comparaison/ecc_satellite_profile.py` reads all of them (no
-sub-sampling); no further download is needed to use the full OMI profile history.
+**10826 profiles spanning 2004-10-01 to 2021-02-28** — the full historical OMI profile
+record at Sodankyla in one file. No further download is needed to use the full OMI
+profile history.
 
 ## Prerequisites
 
@@ -64,4 +64,3 @@ python satellite/OMI/download_omi.py
 
 - **Format**: HDF-EOS5 (`.he5`) or NetCDF
 - **Total column O3**: conversion factor ~-0.01 to DU
-- AVDC text files are read by `comparaison/gs_comparison.py` and `comparaison/gs_profile_comparison.py`

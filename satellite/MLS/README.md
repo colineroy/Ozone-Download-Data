@@ -64,4 +64,3 @@ named `MLS-Aura_L2GP-O3_v05-0X-cXX_<year>d<day-of-year>.he5`.
 - **Quality filter**: `Status % 2 == 0`, `Quality >= 1.2`, `Convergence <= 1.03`
 - **Conversion**: O3 VMR (mol/mol -> ppmv via `*1e6`), then to DU per layer
   via `DU = 0.789 * VMR(ppmv) * dP(hPa)`
-- Read by `comparaison/ecc_satellite_profile.py`
