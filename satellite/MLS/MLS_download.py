@@ -266,13 +266,11 @@ def main():
     print("=" * 55)
 
     print("""
-Next steps:
-   1. Run ecc_mls_comparison.py — point MLS_FILE to one of the downloaded .he5 files
-  2. The script extracts the O3 swath, filters by quality flags, and
-     co-locates profiles within 500 km of Sodankyla automatically.
-
 File naming: MLS-Aura_L2GP-O3_v05-01-c01_<year>d<doy>.he5
   e.g.       MLS-Aura_L2GP-O3_v05-01-c01_2026d105.he5   (April 15 = day 105)
+
+See satellite/MLS/README.md for the HDF-EOS5 field layout (O3 swath,
+quality flags) needed to read these files.
 """)
 
 

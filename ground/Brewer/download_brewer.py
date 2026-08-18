@@ -71,8 +71,9 @@ def download_brewer(brewer_id: int) -> Path | None:
 
 def to_fmi_csv(src: Path, brewer_id: int):
     """
-    Convert EUBREWNET CSV (gmt, o3, ...) to the FMI format expected by
-    comparaison/gs_comparison.py (OBSDATE_UTC, OBSTIME_UTC, OZONE #NN (DU), ...).
+    Convert EUBREWNET CSV (gmt, o3, ...) to the same column layout as the
+    manually-downloaded FMI CSV (OBSDATE_UTC, OBSTIME_UTC, OZONE #NN (DU), ...)
+    -- see ground/Brewer/README.md.
     """
     lines = src.read_text().splitlines()
     if not lines:

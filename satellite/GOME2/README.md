@@ -13,11 +13,10 @@ Collection: `EO:EUM:DAT:METOP:NTO` — Near Real-Time Total Column O3
 
 **Note:** despite the collection name, the downloaded HDF5 files (`S-O3M_GOME_O3-NO2-...`) are
 multi-product files that also contain the **vertical ozone profile**
-(`/DETAILED_RESULTS/O3/O3Profile` + `/DETAILED_RESULTS/O3/O3ProfilePressure`), read by
-`comparaison/ecc_satellite_profile.py`. There is no separate GOME-2 profile collection on the
-EUMETSAT Data Store, and no offline/historical archive for the profile product — only the
-rolling ~60-day NRT window gives profile data. The AVDC archive below (source 2) is total
-column only.
+(`/DETAILED_RESULTS/O3/O3Profile` + `/DETAILED_RESULTS/O3/O3ProfilePressure`). There is no
+separate GOME-2 profile collection on the EUMETSAT Data Store, and no offline/historical
+archive for the profile product — only the rolling ~60-day NRT window gives profile data.
+The AVDC archive below (source 2) is total column only.
 
 ### Prerequisites
 - Free account: https://data.eumetsat.int/
@@ -99,18 +98,10 @@ python satellite/GOME2/gome2_download.py
 
 ### Notes
 
-**Why do AVDC points form a "band" while NRT HDF5 points are cleaner?**
+**Why are AVDC points noisier than NRT HDF5 points?**
 
-NRT HDF5 points (`read_gome2_raw`) are quality-filtered (`qa_col == 0`) and use a small spatial bbox (+-0.5 deg, ~22 x 55 km). Only the best-quality pixels pass through, producing tighter vertical scatter.
-
-AVDC text files (`read_gome2_avdc_raw`) include **all** valid pixels within a **100 km** radius -- up to 15-20 pixels per overpass (the 24 GOME-2 swath pixels over 2-3 scan lines). No quality filter is applied (clouds, swath edges, high SZA all pass through). This produces a wider dispersion ("band") in the comparison plot.
-
-## Reader in comparaison/gs_comparison.py
-
-Both sources are read and merged points under the same satellite keys:
-
-| Key in STYLES | Source(s) |
-|---|---|
-| `GOME2A` | AVDC text file |
-| `GOME2B` | AVDC text file + NRT HDF5 (if available) |
-| `GOME2C` | AVDC text file + NRT HDF5 (if available) |
+The NRT HDF5 product is quality-filtered (`qa_col == 0`) and uses a small spatial box
+(+-0.5 deg, ~22 x 55 km), so only the best-quality pixels are included. The AVDC archive
+includes **all** valid pixels within a **100 km** radius -- up to 15-20 pixels per overpass
+(the 24 GOME-2 swath pixels over 2-3 scan lines) with no quality filter (clouds, swath
+edges, high SZA all pass through), so it has more scatter.

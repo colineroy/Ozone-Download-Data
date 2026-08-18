@@ -87,4 +87,4 @@ Format: WOUDC extCSV (HEGIFTOM homogenization), with `#TIMESTAMP`,
 
 These files are WOUDC-format but for **Marambio, Antarctica** (station
 GAW_ID MBI), not Sodankyla -- leftover from an unrelated station and not
-used by any comparison script here.
+relevant to this repo.
