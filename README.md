@@ -1,8 +1,7 @@
 # Ozone Data Download - Sodankylä, Finland
 
 Scripts to download total column and vertical profile ozone data for the
-Sodankylä FMI station (67.37°N, 26.63°E), part of the NDACC network, from
-ground-based instruments and satellite archives.
+Sodankylä FMI station (67.37°N, 26.63°E), from ground-based instruments and satellite archives.
 
 This repository is **download tooling only** - it does not contain any
 comparison, plotting, or analysis code.
