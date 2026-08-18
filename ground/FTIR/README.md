@@ -2,8 +2,7 @@
 
 ## Data source
 
-NDACC FTIR (Fourier Transform InfraRed) ozone data for Sodankyla, provided
-by BIRA-IASB / FMI, hosted on the BIRA-IASB data portal:
+FTIR (Fourier Transform InfraRed) ozone data for Sodankyla, hosted on the BIRA-IASB data portal:
 
 https://data.aeronomie.be/dataset/ftir-ozone-o3-groundbased-remote-sensing-at-sodankyla-from-hr125-fts-fmi-instrument
 
