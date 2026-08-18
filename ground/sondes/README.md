@@ -2,8 +2,7 @@
 
 ## Data source
 
-Ozonesonde (ECC) data for Sodankyla, homogenized by WOUDC (World Ozone
-and UV Data Centre), available through the public WOUDC API
+Ozonesonde (ECC) data for Sodankyla, available through the public WOUDC API
 (`https://api.woudc.org`, no account needed).
 
 ## How to download
@@ -19,20 +18,6 @@ As of this writing: 1381 flights, spanning 1988-2026.
 
 API docs: https://api.woudc.org/openapi
 Python client alternative: https://github.com/woudc/pywoudc
-
-TCCON is **not** a relevant source here -- it is a separate ground-based
-FTIR network for column CO2/CH4/N2O/CO, not ozonesondes.
-
-## Alternative: raw SHARP files
-
-The pre-homogenization SHARP ASCII files (`.q*` extension) are not on
-WOUDC and have no download script -- contact FMI or NDACC directly, then
-place them in `ground/sondes/sondes_data/`.
-
-Format: multi-line header with metadata; a trigger line containing
-`"Sodankyla"` identifies the station; date on header line 7 (`YYYY MM DD`);
-launch hour on the line after the trigger; total column ozone (`COL1`)
-at field index 10 after the trigger line; units DU.
 
 ## WOUDC extCSV file format
 
