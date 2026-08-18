@@ -2,8 +2,7 @@
 
 ## Data source
 
-Ozonesonde data is provided by FMI (Finnish Meteorological Institute).
-Sondes are launched at Sodankyla (~08:30 UTC) as part of the NDACC program.
+Ozonesonde data is provided by FMI (Finnish Meteorological Institute)
 
 **Recommended: WOUDC API (auto-download, no login required)**
 
