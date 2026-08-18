@@ -9,19 +9,24 @@ comparison, plotting, or analysis code.
 
 ## Supported Instruments
 
-| Instrument | Type | Source | Auto-download | Units |
-|---|---|---|---|---|
-| SAOZ | Ground | `http://saoz.obs.uvsq.fr/saoz/O3_YYYY.SK` | Direct download (no login) | DU |
-| Pandora | Ground | PGN REST API (`api.pandonia-global-network.org`) | API (no login) | mol/m^2 -> x2241 -> DU |
-| Brewer #037 / #214 | Ground | EUBREWNET API (restricted access) / FMI portal | Partial: script exists, but the API needs special EUBREWNET authorisation; falls back to manual FMI download otherwise | DU |
-| BTS | Ground | Local files | No | DU |
-| FTIR | Ground | BIRA-IASB data portal (`data.aeronomie.be`) | Direct download (no login) | Emolec cm^-2 -> x37.214 -> DU |
-| Ozonesonde (ECC) | Ground | WOUDC API (`api.woudc.org`) | Direct download (no login) | DU |
-| S5P TROPOMI | Satellite | Copernicus Data Space OData API | API (credentials required) | mol/m^2 -> x2241 -> DU |
-| GOME-2A / GOME-2B / GOME-2C | Satellite | NRT: `eumdac` (EUMETSAT coll. `EO:EUM:DAT:METOP:NTO`) / Archive: NASA AVDC | NRT: API (credentials req.) / Archive: direct HTTP (no login) | DU |
-| OMI (Aura) | Satellite | NASA GES DISC via CMR / NASA AVDC | API (credentials required) | DU (x0.01) |
-| OMPS (Suomi-NPP total column, NOAA-21 profile) | Satellite | NASA GES DISC via CMR / NASA AVDC | API (credentials required) | DU |
-| MLS (Aura) | Satellite | NASA GES DISC via CMR | API (credentials required) | 0.789 x VMR(ppmv) x dP -> DU/layer |
+| Instrument | Type | Period | Source | Auto-download | Units |
+|---|---|---|---|---|---|
+| SAOZ | Ground | 2012-2026 | `http://saoz.obs.uvsq.fr/saoz/O3_YYYY.SK` | Direct download (no login) | DU |
+| Pandora | Ground | 2026-04 - 2026-06 | PGN REST API (`api.pandonia-global-network.org`) | API (no login) | mol/m^2 -> x2241 -> DU |
+| Brewer #037 | Ground | 1989-06 - 2026 (EUBREWNET); 2026-03 - 2026-04 (FMI CSV) | EUBREWNET API (restricted access) / FMI portal | Partial: script exists, but the API needs special EUBREWNET authorisation; falls back to manual FMI download otherwise | DU |
+| Brewer #214 | Ground | 2013-09 - 2026 (EUBREWNET, low volume); 2026-03 - 2026-04 (FMI CSV) | EUBREWNET API (restricted access) / FMI portal | Same as #037 | DU |
+| BTS | Ground | 2026-04-10 - 2026-04-16 | Local files | No | DU |
+| FTIR | Ground | 2012-2021 | BIRA-IASB data portal (`data.aeronomie.be`) | Direct download (no login) | Emolec cm^-2 -> x37.214 -> DU |
+| Ozonesonde (ECC) | Ground | 1988-2026 (WOUDC, 1381 records) | WOUDC API (`api.woudc.org`) | Direct download (no login) | DU |
+| S5P TROPOMI total column | Satellite | 2026-04 | Copernicus Data Space OData API | API (credentials required) | mol/m^2 -> x2241 -> DU |
+| S5P TROPOMI profile | Satellite | 2018-04 - 2026 (sampled) | Copernicus Data Space OData API | API (credentials required) | mol/m^2 -> x2241 -> DU |
+| GOME-2A (MetOp-A) | Satellite | 2007-2021 (AVDC), decommissioned | NASA AVDC | Direct HTTP (no login) | DU |
+| GOME-2B (MetOp-B) | Satellite | 2013-2019 (AVDC), 2026-04 - 2026-08 (NRT) | `eumdac` (EUMETSAT) / NASA AVDC | NRT: API (credentials req.) / Archive: direct HTTP | DU |
+| GOME-2C (MetOp-C) | Satellite | 2019-2026 (AVDC), 2026-04 - 2026-08 (NRT) | `eumdac` (EUMETSAT) / NASA AVDC | NRT: API (credentials req.) / Archive: direct HTTP | DU |
+| OMI (Aura) | Satellite | 2004-2026 (total col); 2004-10 - 2021-02 (profile) | NASA GES DISC via CMR / NASA AVDC | API (credentials required) | DU (x0.01) |
+| OMPS NMTO3 (Suomi-NPP) | Satellite | 2012-2026 | NASA GES DISC via CMR / NASA AVDC | API (credentials required) | DU |
+| OMPS NOAA-21 profile | Satellite | 2022-11 - 2026-06 | NASA AVDC | Direct HTTP (no login) | DU/layer |
+| MLS (Aura) | Satellite | 2004-10 - 2026 (sampled to sonde flights) | NASA GES DISC via CMR | API (credentials required) | 0.789 x VMR(ppmv) x dP -> DU/layer |
 
 ## Quick Start
 
