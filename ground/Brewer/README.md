@@ -4,8 +4,7 @@
 
 Brewer total column ozone data for Sodankylä (Brewers #037, #214) is
 downloaded manually from the **Finnish Meteorological Institute (FMI)** open
-data portal. There is no automated download script - CSV files must be placed
-in `brewer_data/` by hand.
+data portal. There is no automated download script.
 
 ### FMI observation portal (recommended)
 
@@ -82,12 +81,3 @@ FMISID;LPNN;OBSDATE_UTC;OBSTIME_UTC;...;OZONE #37 (DU);OZONE #214 (DU);...
 - Brewer measurements are sparse (daylight hours only), most rows have empty
   OZONE columns.
 
-## Directory layout
-
-```
-Brewer/
-+-- README.md                       # This file
-+-- brewer_data/                    # Place FMI CSVs here
-|   +-- st-lpnn-7501fmisid-101932-csv-*.csv
-+-- Brewer_Technical_Documentation.docx
-```
