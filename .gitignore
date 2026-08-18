@@ -1,0 +1,67 @@
+# Credentials
+.env
+
+# Comparison/analysis code and generated plots -- out of scope for this
+# repo (data-download tooling only)
+comparaison/
+plots/
+satellite/*/figures/
+satellite/*/*comparison*.py
+ground/Brewer/time_serie/
+ground/Brewer/extract_brewernet.py
+
+# Données satellites et instruments
+ground/SAOZ/saoz_data/
+ground/Pandora/pandora_data/
+satellite/S5P/s5p_data/
+satellite/GOME2/GOME2_data/
+satellite/GOME2/GOME2_avdc/
+satellite/OMI/omi_data/
+satellite/OMPS/omps_data/
+!satellite/OMPS/omps_data/suomi_npp*.txt
+ground/BTS/BTS_data/
+ground/BTS/*.zip
+ground/Brewer/brewer_data/
+ground/FTIR/*.hdf
+satellite/MLS/mls_data/
+satellite/OMPS/omps_data/noaa21_profile/
+doc utils/
+
+# Données sondes (fichiers SHARP et archives)
+ground/sondes/sondes_data/so*.q*
+ground/sondes/sondes_data/*.zip
+ground/sondes/sondes_data/*.mat
+ground/sondes/sondes_data/*.xls
+ground/sondes/MR/
+ground/sondes/woudc/
+ground/sondes/sondes_data/woudc/
+ground/sondes/sondes_data/24-26/
+ground/sondes/sondes_data/89-94/
+ground/sondes/sondes_data/94-24/
+ground/sondes/sondes_data/geoms_output/
+ground/sondes/sondes_data/README_SESSION.md
+ground/sondes/sondes_data/Ozonesonde(2).csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+ground/Brewer/brewer_data/*.csv
+ground/Pandora/*.png
+*.log
+
+# MATLAB source files
+**/*.m
+
+# Technical documentation (large binary files)
+**/*.docx
+**/*.pdf
