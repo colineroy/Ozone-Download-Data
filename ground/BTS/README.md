@@ -20,7 +20,3 @@ Time (ISO 8691, GMT),Airmass,Ozone (DU),Ozone_STD,Ozone_Uncertainty
 - Units: DU (Dobson Units) - no conversion needed
 
 Example filename: `20260410_TOC_BTS_66639_V1.csv`
-
-## Output
-
-No output - files are read directly by `comparaison/gs_comparison.py`.
