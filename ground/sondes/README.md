@@ -19,6 +19,22 @@ As of this writing: 1381 flights, spanning 1988-2026.
 API docs: https://api.woudc.org/openapi
 Python client alternative: https://github.com/woudc/pywoudc
 
+**Note:** this flat `sondes_data/woudc/` dump is a reference copy of what
+WOUDC has on file — it is **not** what `comparaison/gs_comparison.py`
+reads for the comparison plots. That reads instead from the era-split
+`sondes_data/{89-94,94-24,24-26}/woudc/` directories, which are produced
+by the separate DQA homogenization pipeline in `raw_to_woudc/` (see its
+own README) from raw SHARP/NOG-DB/MR files. Re-running
+`download_woudc.py` alone will not update the data the plots use.
+
+Two sibling scripts, `download_woudc_eureka.py` and
+`download_woudc_ny_alesund.py`, download the same WOUDC ozonesonde
+collection but for the Eureka and Ny-Ålesund Arctic stations instead of
+Sodankyla — used as reference/comparison stations (Eureka has continuous
+1992-2026 coverage; Ny-Ålesund's record has more gaps, 1990-2013). They
+write to `sondes_data/woudc_eureka/` and `sondes_data/woudc_ny_alesund/`
+respectively and are otherwise identical to `download_woudc.py`.
+
 ## WOUDC extCSV file format
 
 Each file has `#TIMESTAMP`, `#FLIGHT_SUMMARY`, and `#PROFILE` sections.

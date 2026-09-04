@@ -8,7 +8,12 @@ data portal. There is no automated download script.
 
 ### FMI observation portal (recommended)
 
-URL: https://hav.fmi.fi/hav/asema/?fmisid=101932&page=obs
+URL: https://www.ilmatieteenlaitos.fi/havaintojen-lataus?fmisid=101932
+
+(FMI redesigned their download portal in 2026 — the old `hav.fmi.fi`
+domain no longer resolves. The exact click-through steps below are from
+the previous portal and may need re-checking against the new one; the
+station is still Sodankylä Tähtelä, FMISID=101932.)
 
 Steps:
 1. Open the link above (Sodankylä Tähtelä, FMISID=101932)
@@ -80,4 +85,17 @@ FMISID;LPNN;OBSDATE_UTC;OBSTIME_UTC;...;OZONE #37 (DU);OZONE #214 (DU);...
 - Units: Dobson Units (DU) - no conversion needed.
 - Brewer measurements are sparse (daylight hours only), most rows have empty
   OZONE columns.
+
+## Other scripts in this folder
+
+- **`brewer_woudc_export.py`** — converts the EUBREWNET L1.5 archive files
+  above into WOUDC TotalOzone extCSV format (one file per brewer/year-month),
+  writing to `woudc_totalozone/`. Reads both the `SDK_<year>_...` and the
+  per-instrument `<brewerid>_<year>_...` file conventions from
+  `brewer_data/` (deduplicated), the same way `comparaison/gs_comparison.py`
+  does. See the script's own docstring for the WOUDC field mapping and known
+  gaps (e.g. `ObsCode` is hardcoded, `#214`'s instrument model is unconfirmed).
+- **`time_serie/brewertimeseries.py`** — plots a multi-year Brewer #037/#214
+  time series (daily values, monthly climatology, measurement density) from
+  the same EUBREWNET L1.5 files, to `plots/brewer_timeseries.png`.
 

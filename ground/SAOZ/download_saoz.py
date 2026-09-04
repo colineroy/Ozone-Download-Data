@@ -24,7 +24,7 @@ STATION_NAME = "Sodankyla"
 
 YEAR = 2021
 
-OUT_DIR = Path("./saoz_data")
+OUT_DIR = Path(__file__).resolve().parent / "saoz_data"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 BASE_URL = "http://saoz.obs.uvsq.fr/saoz"

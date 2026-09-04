@@ -36,9 +36,9 @@ Edit the top of `ground/SAOZ/download_saoz.py`:
 | Variable | Default | Description |
 |---|---|---|
 | `STATION` | `"SK"` | Station code (see table below) |
-| `YEAR` | `2024` | Year to download |
+| `YEAR` | `2021` | Year to download — edit before each run |
 | `BASE_URL` | `"http://saoz.obs.uvsq.fr/saoz"` | SAOZ data server |
-| `OUT_DIR` | `Path("./saoz_data")` | Output directory |
+| `OUT_DIR` | `ground/SAOZ/saoz_data/` (relative to the script itself, so it's safe to run from any working directory) | Output directory |
 
 ### Station codes
 

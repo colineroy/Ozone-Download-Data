@@ -5,6 +5,7 @@ API: https://api.pandonia-global-network.org/v1
 Docs: https://www.pandonia-global-network.org/services/api/
 """
 
+import time
 import requests
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -15,10 +16,10 @@ PAN_ID = 309
 SPECTROMETER = "1"
 LEVEL = "L2"
 CODE = "rout2"
-DATE_START = "2026-04-20"
-DATE_END   = "2026-04-20"
+DATE_START = "2026-04-04"  # earliest date with L2 data for this instrument
+DATE_END   = "2026-09-03"
 
-OUT_DIR = Path("./pandora_data")
+OUT_DIR = Path(__file__).resolve().parent / "pandora_data"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 BASE = "https://api.pandonia-global-network.org/v1"
@@ -30,6 +31,18 @@ def date_range(start, end):
     while d <= end:
         yield d
         d += timedelta(days=1)
+
+
+def get_with_retry(url, max_retries=5):
+    """GET a URL, retrying with backoff when the API rate-limits us (429)."""
+    for attempt in range(max_retries):
+        resp = requests.get(url)
+        if resp.status_code != 429:
+            return resp
+        wait = float(resp.headers.get("Retry-After", 5 * (attempt + 1)))
+        print(f"      Rate limited, waiting {wait:.0f}s...")
+        time.sleep(wait)
+    return resp
 
 
 def main():
@@ -47,7 +60,11 @@ def main():
 
         url = f"{BASE}/files/{SITE}/{PAN_ID}/{SPECTROMETER}/{LEVEL}?start={start}&end={end}&code={CODE}"
         print(f"  [{day}]")
-        resp = requests.get(url)
+        resp = get_with_retry(url)
+        if resp.status_code == 404:
+            # API returns 404 (instead of an empty list) when no files match
+            print(f"      No {CODE} files found")
+            continue
         resp.raise_for_status()
         files = resp.json()
 
@@ -59,7 +76,7 @@ def main():
             filename = f["filename"]
             print(f"      {filename} ({f['size']} bytes)")
             dl_url = f"{BASE}/download/{filename}"
-            resp = requests.get(dl_url)
+            resp = get_with_retry(dl_url)
             resp.raise_for_status()
             content = resp.text
 
@@ -67,6 +84,8 @@ def main():
             local_path.write_text(content, encoding="utf-8")
             print(f"      Saved -> {local_path.name}")
             count += 1
+
+        time.sleep(0.3)  # be gentle with the API rate limit
 
     print(f"\n  Done: {count} file(s) downloaded")
 

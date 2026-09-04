@@ -5,7 +5,7 @@ Requires special API permissions from EUBREWNET admins.
 See: https://eubrewnet.aemet.es/dokuwiki/doku.php?id=codes:dbaccess
 
 If you don't have API access yet, download manually from:
-  https://hav.fmi.fi/hav/asema/?fmisid=101932&page=obs
+  https://www.ilmatieteenlaitos.fi/havaintojen-lataus?fmisid=101932
   → place CSV in Brewer/brewer_data/
 
 Credentials in .env:
@@ -13,18 +13,23 @@ Credentials in .env:
   EUBREWNET_PASS=your_password
 """
 
-import os, csv
+import os, sys, csv
 from pathlib import Path
 from datetime import datetime
 import requests
 from dotenv import load_dotenv
 load_dotenv()
 
+# Windows consoles default to cp1252, which can't encode the arrows/
+# checkmarks used in the print statements below -- force UTF-8 so this
+# doesn't crash before doing anything.
+sys.stdout.reconfigure(encoding="utf-8")
+
 # ── CONFIG ──────────────────────────────────────────────────────
 DATE_START = "2026-04-01"
 DATE_END   = "2026-04-30"
 BREWER_IDS = [37, 214]
-OUT_DIR    = Path("./Brewer/brewer_data")
+OUT_DIR    = Path(__file__).resolve().parent / "brewer_data"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 USER = os.getenv("EUBREWNET_USER", "")
