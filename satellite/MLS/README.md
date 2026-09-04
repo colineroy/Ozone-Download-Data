@@ -62,5 +62,24 @@ named `MLS-Aura_L2GP-O3_v05-0X-cXX_<year>d<day-of-year>.he5`.
   - `Geolocation Fields/Latitude`, `Longitude`, `Pressure`
   - `Data Fields/O3` (mol/mol), `Status`, `Quality`, `Convergence`
 - **Quality filter**: `Status % 2 == 0`, `Quality >= 1.2`, `Convergence <= 1.03`
-- **Conversion**: O3 VMR (mol/mol -> ppmv via `*1e6`), then to DU per layer
-  via `DU = 0.789 * VMR(ppmv) * dP(hPa)`
+- **Conversion**: O3 VMR (mol/mol -> ppmv via `*1e6`). Neither script in
+  this folder converts further to DU -- comparisons are done in ppmv/VMR
+  space (see `ecc_mls_comparison.py` below).
+
+## Profile comparison against ozonesondes
+
+`ecc_mls_comparison.py` reads a WOUDC AMES-2160 ozonesonde file (from
+`ground/sondes/sondes_data/`) and a co-located MLS `.he5` granule
+downloaded above, interpolates both onto a common pressure grid
+(8-261 hPa, MLS's valid range), computes MLS-vs-ECC bias/spread/
+correlation, and saves two figures to `satellite/MLS/figures/`.
+
+Edit the top of the script to point `SONDE_FILE`/`MLS_FILE` at the
+sonde flight and MLS granule you want to compare, and set `DATE_STR`
+accordingly.
+
+```bash
+python satellite/MLS/ecc_mls_comparison.py
+```
+
+Dependencies: `numpy`, `pandas`, `scipy`, `matplotlib`, `h5py`.

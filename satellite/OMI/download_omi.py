@@ -10,7 +10,7 @@ Access: Requires NASA Earthdata Login account
   Register at: https://urs.earthdata.nasa.gov/
 
 Dependencies:
-    pip install requests python-dateutil
+    pip install requests python-dotenv
 """
 
 import os
@@ -133,11 +133,15 @@ def ensure_omi_avdc():
             print(f"    [skip] {info['filename']}")
             continue
         print(f"    [dl]   {info['filename']}")
-        with requests.get(info["url"], stream=True, timeout=120) as r:
-            r.raise_for_status()
-            with open(out_path, "wb") as f:
-                for chunk in r.iter_content(chunk_size=65536):
-                    f.write(chunk)
+        try:
+            with requests.get(info["url"], stream=True, timeout=120) as r:
+                r.raise_for_status()
+                with open(out_path, "wb") as f:
+                    for chunk in r.iter_content(chunk_size=65536):
+                        f.write(chunk)
+        except requests.RequestException as e:
+            print(f"    [!] {info['filename']}: {e}")
+            out_path.unlink(missing_ok=True)
     print()
 
 

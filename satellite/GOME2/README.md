@@ -69,6 +69,7 @@ https://avdc.gsfc.nasa.gov/pub/data/satellite/MetOp/GOME2/V03/L2OVP/
 | `Datetime` | ISO timestamp `YYYYMMDDTHHMMSSmmmZ` | - |
 | `DOY` | Day of year | - |
 | `Day` | Days since 1950-01-01 | - |
+| `MillisecondOfDay` | Milliseconds since midnight | ms |
 | `Orbit` | Orbit number | - |
 | `Scan` | Pixel index within scan | - |
 | `Lat.` | Pixel center latitude | deg |
@@ -77,8 +78,14 @@ https://avdc.gsfc.nasa.gov/pub/data/satellite/MetOp/GOME2/V03/L2OVP/
 | `SZA` | Solar zenith angle | deg |
 | `Cld.Fr.` | OCRA cloud fraction | - |
 | `Cld.Pr.` | OCRA cloud pressure | mbar |
+| `VCD_BrO` / `VCD_H2O` / `VCD_HCHO` / `VCD_NO2` / `VCD_NO2Trop` | Other trace gases (before O3) | various |
 | `VCD_O3` | Total column O3 | **DU** |
-| `VCD_BrO` / `VCD_H2O` / ... | Other trace gases | various |
+| `VCD_OCLO` / `VCD_SO2` | Other trace gases (after O3) | various |
+
+(Column order verified against a live sample file's own header, which is
+self-documenting — check it directly if in doubt.
+`comparaison/gs_comparison.py`'s `read_gome2_avdc_raw` already reads the
+correct positions regardless of this table.)
 
 Fill values: `-1.0000e+00` for O3, other gases similar.
 

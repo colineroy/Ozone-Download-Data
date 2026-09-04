@@ -139,7 +139,8 @@ def download_granule(granule, output_dir):
 
     print(f"  [dl]    {filename}")
     headers = {"Authorization": f"Bearer {EARTHDATA_TOKEN}"} if EARTHDATA_TOKEN else {}
-    with requests.get(url, headers=headers, stream=True) as r:
+    auth = (EARTHDATA_USER, EARTHDATA_PASS) if not EARTHDATA_TOKEN else None
+    with requests.get(url, headers=headers, auth=auth, stream=True) as r:
         r.raise_for_status()
         total = int(r.headers.get("Content-Length", 0))
         downloaded = 0

@@ -29,13 +29,16 @@ The script downloads AVDC files automatically (no auth needed).
 **Note:** the local `satellite_aura_omi_l2ovp_omo3pr_sodankyla.h5` file already contains
 **10826 profiles spanning 2004-10-01 to 2021-02-28** — the full historical OMI profile
 record at Sodankyla in one file. No further download is needed to use the full OMI
-profile history.
+profile history. Good thing, too: as of this writing the AVDC OMO3PR URL above
+returns `403 Forbidden` (the other two AVDC files are still fine) — the script
+now skips it with a warning instead of crashing if you ever run it on a fresh
+checkout without this file already present.
 
 ## Prerequisites
 
 - For CMR download: NASA Earthdata Login account: https://urs.earthdata.nasa.gov/
 - Credentials in `.env`: `EARTHDATA_USER`, `EARTHDATA_PASS` (or `EARTHDATA_TOKEN`)
-- Dependencies: `requests`, `h5py`, `python-dateutil`
+- Dependencies: `requests`, `python-dotenv`
 
 ## Configuration
 
@@ -46,8 +49,8 @@ Edit the top of `satellite/OMI/download_omi.py`:
 | `LAT_SITE` | `67.3668` | Station latitude |
 | `LON_SITE` | `26.6297` | Station longitude |
 | `DELTA` | `0.5` | Co-location window (degrees) |
-| `DATE_START` | `"2026-04-15"` | Start date (YYYY-MM-DD) |
-| `DATE_END` | `"2026-04-15"` | End date (YYYY-MM-DD) |
+| `DATE_START` | e.g. `"2026-05-29"` | Start date (YYYY-MM-DD) — edit before each run |
+| `DATE_END` | e.g. `"2026-05-29"` | End date (YYYY-MM-DD) — edit before each run |
 
 ## How to download
 
