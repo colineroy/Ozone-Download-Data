@@ -92,10 +92,7 @@ FMISID;LPNN;OBSDATE_UTC;OBSTIME_UTC;...;OZONE #37 (DU);OZONE #214 (DU);...
   above into WOUDC TotalOzone extCSV format (one file per brewer/year-month),
   writing to `woudc_totalozone/`. Reads both the `SDK_<year>_...` and the
   per-instrument `<brewerid>_<year>_...` file conventions from
-  `brewer_data/` (deduplicated), the same way `comparaison/gs_comparison.py`
-  does. See the script's own docstring for the WOUDC field mapping and known
-  gaps (e.g. `ObsCode` is hardcoded, `#214`'s instrument model is unconfirmed).
-- **`time_serie/brewertimeseries.py`** — plots a multi-year Brewer #037/#214
-  time series (daily values, monthly climatology, measurement density) from
-  the same EUBREWNET L1.5 files, to `plots/brewer_timeseries.png`.
+  `brewer_data/` (deduplicated). See the script's own docstring for the
+  WOUDC field mapping and known gaps (e.g. `ObsCode` is hardcoded, `#214`'s
+  instrument model is unconfirmed).
 

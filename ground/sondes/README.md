@@ -20,12 +20,11 @@ API docs: https://api.woudc.org/openapi
 Python client alternative: https://github.com/woudc/pywoudc
 
 **Note:** this flat `sondes_data/woudc/` dump is a reference copy of what
-WOUDC has on file — it is **not** what `comparaison/gs_comparison.py`
-reads for the comparison plots. That reads instead from the era-split
-`sondes_data/{89-94,94-24,24-26}/woudc/` directories, which are produced
-by the separate DQA homogenization pipeline in `raw_to_woudc/` (see its
-own README) from raw SHARP/NOG-DB/MR files. Re-running
-`download_woudc.py` alone will not update the data the plots use.
+WOUDC has on file — it is a separate, independent output from the
+era-split `sondes_data/{89-94,94-24,24-26}/woudc/` directories, which are
+produced by the separate DQA homogenization pipeline in `raw_to_woudc/`
+(see its own README) from raw SHARP/NOG-DB/MR files. Running
+`download_woudc.py` does not update those era-split directories.
 
 Two sibling scripts, `download_woudc_eureka.py` and
 `download_woudc_ny_alesund.py`, download the same WOUDC ozonesonde

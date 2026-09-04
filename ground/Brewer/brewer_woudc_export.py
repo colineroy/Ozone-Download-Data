@@ -90,11 +90,10 @@ def load_eubrewnet_years(data_dir: Path | str, years: list[int] | None = None) -
     Two file conventions coexist in data_dir: station-wide
     "SDK_<year>_..." exports (both Brewers mixed in one file) and
     per-instrument "<brewerid>_<year>_..." exports (single Brewer only,
-    sometimes fresher/more complete -- see gs_comparison.py's
-    read_brewer_eubrewnet for the same pattern). Both are merged here,
-    deduplicated by (datetime, brewerid) since the same reading can
-    appear in both sources -- without dedup, daily_aggregate would
-    silently average duplicated observations together.
+    sometimes fresher/more complete). Both are merged here, deduplicated
+    by (datetime, brewerid) since the same reading can appear in both
+    sources -- without dedup, daily_aggregate would silently average
+    duplicated observations together.
     """
     data_dir = Path(data_dir)
     patterns = ["SDK_*_ozone_product_1_5.txt",

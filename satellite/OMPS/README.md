@@ -71,5 +71,5 @@ python satellite/OMPS/download_omps.py
 ## File format
 
 - **NMTO3**: HDF5 (`.h5`) — total column, units as provided by GES DISC
-- **NOAA-21 LP-L2-O3-DAILY**: Text (`.txt`) — daily limb profile, O3 VMR (ppmv) on 60 levels (0.5–60.5 km). A `DU = 0.789 * VMR(ppmv) * dP(hPa)` conversion is noted here for reference but isn't implemented anywhere in this repo yet (neither this script nor `comparaison/gs_comparison.py`, which doesn't read the NOAA-21 profile data at all) — verify it before relying on it.
+- **NOAA-21 LP-L2-O3-DAILY**: Text (`.txt`) — daily limb profile, O3 VMR (ppmv) on 60 levels (0.5–60.5 km). A `DU = 0.789 * VMR(ppmv) * dP(hPa)` conversion is noted here for reference but isn't implemented anywhere in this repo yet — verify it before relying on it.
 - NOAA-20 OMPS data is not currently configured (check NOAA STAR or CLASS)

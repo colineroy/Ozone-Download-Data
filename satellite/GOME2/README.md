@@ -83,9 +83,7 @@ https://avdc.gsfc.nasa.gov/pub/data/satellite/MetOp/GOME2/V03/L2OVP/
 | `VCD_OCLO` / `VCD_SO2` | Other trace gases (after O3) | various |
 
 (Column order verified against a live sample file's own header, which is
-self-documenting — check it directly if in doubt.
-`comparaison/gs_comparison.py`'s `read_gome2_avdc_raw` already reads the
-correct positions regardless of this table.)
+self-documenting — check it directly if in doubt.)
 
 Fill values: `-1.0000e+00` for O3, other gases similar.
 
