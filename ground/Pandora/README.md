@@ -31,14 +31,14 @@ Edit the top of `ground/Pandora/download_pandora.py`:
 | `SPECTROMETER` | `"1"` | Spectrometer number |
 | `LEVEL` | `"L2"` | Data level |
 | `CODE` | `"rout2"` | Product code (see table below) |
-| `DATE_START` | e.g. `"2026-04-04"` | Start date (YYYY-MM-DD) — edit before each run |
-| `DATE_END` | e.g. `"2026-09-03"` | End date (YYYY-MM-DD) — edit before each run |
+| `DATE_START` | e.g. `"2026-04-04"` | Start date (YYYY-MM-DD) - edit before each run |
+| `DATE_END` | e.g. `"2026-09-03"` | End date (YYYY-MM-DD) - edit before each run |
 | `BASE` | `"https://api.pandonia-global-network.org/v1"` | API base URL |
 | `OUT_DIR` | `ground/Pandora/pandora_data/` (relative to the script itself, so it's safe to run from any working directory) | Output directory |
 
 Note: L2 data for Sodankyla/Pandora309 currently only exists from
 **2026-04-04** onward (this instrument's current processing/calibration
-version has no earlier data) — requesting earlier dates just returns
+version has no earlier data) - requesting earlier dates just returns
 "No files found" for every day.
 
 ### Common codes
@@ -60,6 +60,6 @@ Only `rout2` (ozone total column) is confirmed/used here.
 python ground/Pandora/download_pandora.py
 ```
 
-No login required — data is public.
+No login required - data is public.
 
 Download time is approximately **2 seconds per day**.

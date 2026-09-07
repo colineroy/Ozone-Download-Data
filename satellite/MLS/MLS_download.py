@@ -1,5 +1,5 @@
 """
-MLS (Aura) — Download ozone profile data for Sodankyla FMI
+MLS (Aura) - Download ozone profile data for Sodankyla FMI
 ===========================================================
 Products:
   - ML2O3   : Ozone vertical profile (Level 2, v5.1)
@@ -10,7 +10,7 @@ Access: Requires NASA Earthdata Login account
   Register at: https://urs.earthdata.nasa.gov/
 
 Note on co-location:
-  MLS is a limb sounder — its horizontal footprint is large (~200 km along-track).
+  MLS is a limb sounder - its horizontal footprint is large (~200 km along-track).
   Standard NDACC co-location radius for MLS vs sonde is 500 km (not 0.5° like OMI).
   The bounding box used here is therefore wider than for OMI/TROPOMI.
 
@@ -47,7 +47,7 @@ EARTHDATA_PASS  = os.getenv("EARTHDATA_PASS",  "your_password")
 EARTHDATA_TOKEN = os.getenv("EARTHDATA_TOKEN", "")
 
 # ── PRODUCTS ─────────────────────────────────────────────────────────────
-# CMR concept IDs — MLS v5.1 on GES DISC
+# CMR concept IDs - MLS v5.1 on GES DISC
 # Find current IDs at: https://cmr.earthdata.nasa.gov/search/
 #   collections.json?short_name=ML2O3&version=005
 PRODUCTS = {
@@ -111,7 +111,7 @@ def search_cmr(concept_id: str,
 # ═══════════════════════════════════════════════════════════════════════════
 
 def _get_headers() -> dict:
-    """Return auth headers — Bearer token preferred over Basic Auth."""
+    """Return auth headers - Bearer token preferred over Basic Auth."""
     if EARTHDATA_TOKEN:
         return {"Authorization": f"Bearer {EARTHDATA_TOKEN}"}
     return {}
@@ -216,11 +216,11 @@ def check_credentials():
 
 def main():
     print("=" * 55)
-    print("  MLS (Aura) Download — Sodankylä FMI")
+    print("  MLS (Aura) Download - Sodankylä FMI")
     print("=" * 55)
     print(f"\n  Period : {DATE_START}  ->  {DATE_END}")
     print(f"  Site   : {LAT_SITE}°N  {LON_SITE}°E  ±{DELTA}°")
-    print(f"  (~{DELTA*111:.0f} km radius — standard MLS co-location)\n")
+    print(f"  (~{DELTA*111:.0f} km radius - standard MLS co-location)\n")
 
     if not check_credentials():
         return

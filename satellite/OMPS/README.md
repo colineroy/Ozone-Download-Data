@@ -53,8 +53,8 @@ Edit the top of `satellite/OMPS/download_omps.py`:
 | `LAT_SITE` | `67.3668` | Station latitude |
 | `LON_SITE` | `26.6297` | Station longitude |
 | `DELTA` | `0.5` | Co-location window (degrees) |
-| `DATE_START` | e.g. `"2026-04-25"` | Start date (YYYY-MM-DD) — edit before each run |
-| `DATE_END` | e.g. `"2026-04-26"` | End date (YYYY-MM-DD) — edit before each run |
+| `DATE_START` | e.g. `"2026-04-25"` | Start date (YYYY-MM-DD) - edit before each run |
+| `DATE_END` | e.g. `"2026-04-26"` | End date (YYYY-MM-DD) - edit before each run |
 
 ## How to download
 
@@ -65,11 +65,11 @@ python satellite/OMPS/download_omps.py
 
 ## Output
 
-- `satellite/OMPS/omps_data/` — NMTO3 HDF5 granules (via CMR) + NMTO3 AVDC overpass text file (via HTTP).
-- `satellite/OMPS/omps_data/noaa21_profile/` — NOAA-21 LP-L2-O3-DAILY daily profile text files (via AVDC HTTP).
+- `satellite/OMPS/omps_data/` - NMTO3 HDF5 granules (via CMR) + NMTO3 AVDC overpass text file (via HTTP).
+- `satellite/OMPS/omps_data/noaa21_profile/` - NOAA-21 LP-L2-O3-DAILY daily profile text files (via AVDC HTTP).
 
 ## File format
 
-- **NMTO3**: HDF5 (`.h5`) — total column, units as provided by GES DISC
-- **NOAA-21 LP-L2-O3-DAILY**: Text (`.txt`) — daily limb profile, O3 VMR (ppmv) on 60 levels (0.5–60.5 km). A `DU = 0.789 * VMR(ppmv) * dP(hPa)` conversion is noted here for reference but isn't implemented anywhere in this repo yet — verify it before relying on it.
+- **NMTO3**: HDF5 (`.h5`) - total column, units as provided by GES DISC
+- **NOAA-21 LP-L2-O3-DAILY**: Text (`.txt`) - daily limb profile, O3 VMR (ppmv) on 60 levels (0.5–60.5 km). A `DU = 0.789 * VMR(ppmv) * dP(hPa)` conversion is noted here for reference but isn't implemented anywhere in this repo yet - verify it before relying on it.
 - NOAA-20 OMPS data is not currently configured (check NOAA STAR or CLASS)

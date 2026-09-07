@@ -1,5 +1,5 @@
 """
-Brewer — EUBREWNET API download (if access granted)
+Brewer - EUBREWNET API download (if access granted)
 =====================================================
 Requires special API permissions from EUBREWNET admins.
 See: https://eubrewnet.aemet.es/dokuwiki/doku.php?id=codes:dbaccess
@@ -35,7 +35,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 USER = os.getenv("EUBREWNET_USER", "")
 PASS = os.getenv("EUBREWNET_PASS", "")
 
-# Both GET and PROCESS paths — one of them should work depending on permissions
+# Both GET and PROCESS paths - one of them should work depending on permissions
 API_PATHS = [
     "https://eubrewnet.aemet.es/eubrewnet/data/get/O3L1_5",
     "https://eubrewnet.aemet.es/eubrewnet/data/process/O3L1_5",
@@ -67,7 +67,7 @@ def download_brewer(brewer_id: int) -> Path | None:
             return out
 
         if r.status_code == 403 or "permission" in r.text.lower():
-            print(f"  ✗ #{brewer_id}: no API permission — request access from eubrewnet@aemet.es")
+            print(f"  ✗ #{brewer_id}: no API permission - request access from eubrewnet@aemet.es")
             return None   # no point retrying other path
 
         # else: 404 or wrong path → try next
@@ -126,7 +126,7 @@ def main():
     print(f"  Brewers: {', '.join(f'#{b}' for b in BREWER_IDS)}\n")
 
     if not USER:
-        print("  No credentials in .env — skipping API download.")
+        print("  No credentials in .env - skipping API download.")
         print("  Manual download: https://hav.fmi.fi/hav/asema/?fmisid=101932&page=obs")
         return
 

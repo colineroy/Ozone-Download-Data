@@ -1,5 +1,5 @@
 """
-SAOZ — Download O3 + NO2 data for Sodankyla (or any other station)
+SAOZ - Download O3 + NO2 data for Sodankyla (or any other station)
 
 Site: http://saoz.obs.uvsq.fr/ReseauSAOZ-UK.html
 Data: http://saoz.obs.uvsq.fr/saoz/O3_YYYY.STATIONCODE
@@ -101,7 +101,7 @@ def write_csv(rows, path):
 
 def main():
     station_name = STATIONS.get(STATION, STATION)
-    print(f"=== SAOZ Download — {station_name} ({STATION}) ===\n")
+    print(f"=== SAOZ Download - {station_name} ({STATION}) ===\n")
     print(f"  Year: {YEAR}\n")
 
     try:

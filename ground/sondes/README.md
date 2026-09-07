@@ -20,7 +20,7 @@ API docs: https://api.woudc.org/openapi
 Python client alternative: https://github.com/woudc/pywoudc
 
 **Note:** this flat `sondes_data/woudc/` dump is a reference copy of what
-WOUDC has on file — it is a separate, independent output from the
+WOUDC has on file - it is a separate, independent output from the
 era-split `sondes_data/{89-94,94-24,24-26}/woudc/` directories, which are
 produced by the separate DQA homogenization pipeline in `raw_to_woudc/`
 (see its own README) from raw SHARP/NOG-DB/MR files. Running
@@ -29,7 +29,7 @@ produced by the separate DQA homogenization pipeline in `raw_to_woudc/`
 Two sibling scripts, `download_woudc_eureka.py` and
 `download_woudc_ny_alesund.py`, download the same WOUDC ozonesonde
 collection but for the Eureka and Ny-Ålesund Arctic stations instead of
-Sodankyla — used as reference/comparison stations (Eureka has continuous
+Sodankyla - used as reference/comparison stations (Eureka has continuous
 1992-2026 coverage; Ny-Ålesund's record has more gaps, 1990-2013). They
 write to `sondes_data/woudc_eureka/` and `sondes_data/woudc_ny_alesund/`
 respectively and are otherwise identical to `download_woudc.py`.

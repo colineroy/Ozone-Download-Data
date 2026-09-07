@@ -1,5 +1,5 @@
 """
-S5P TROPOMI — Download script for Sodankyla FMI
+S5P TROPOMI - Download script for Sodankyla FMI
 Downloads two products:
   - L2__O3____  : Total Column Ozone  (~100 MB/file)
   - L2__O3_PR   : Ozone vertical Profile (~150 MB/file)
@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ─────────────────────────────────────────────
-# CONFIGURATION — edit this section only
+# CONFIGURATION - edit this section only
 # ─────────────────────────────────────────────
 
 # Sodankyla FMI station coordinates
@@ -32,7 +32,7 @@ DELTA    = 0.5        # co-location window in degrees (~50 km)
 DATE_START = "2026-04-01"
 DATE_END   = "2026-04-03"   # ← start with one week !
 
-# Products to download — comment out either line to skip it
+# Products to download - comment out either line to skip it
 PRODUCTS_TO_DOWNLOAD = [
     "L2__O3____",   # Total column ozone  
     "L2__O3__PR_",   # Ozone profile       
@@ -204,7 +204,7 @@ def download_product(product: dict, token: str, output_dir: Path) -> Path:
 # ─────────────────────────────────────────────
 
 def main():
-    print("=== S5P TROPOMI Download — Sodankyla FMI ===\n")
+    print("=== S5P TROPOMI Download - Sodankyla FMI ===\n")
     print(f"  Period   : {DATE_START} -> {DATE_END}")
     print(f"  Site     : lat={LAT_SITE}N  lon={LON_SITE}E  window=±{DELTA}°\n")
 
@@ -222,7 +222,7 @@ def main():
                                    LAT_SITE, LON_SITE, DELTA)
 
         if not products:
-            print(f"  No files found for {ptype} — check dates or product availability")
+            print(f"  No files found for {ptype} - check dates or product availability")
             continue
 
         n        = len(products)
@@ -237,7 +237,7 @@ def main():
             download_product(prod, token, out_dir)
             total_files += 1
 
-    print(f"\n=== Done — {total_files} files downloaded (or already present) ===")
+    print(f"\n=== Done - {total_files} files downloaded (or already present) ===")
     print(f"  Total column files : {DIRS['L2__O3____']}")
     print(f"  Profile files      : {DIRS['L2__O3__PR_']}")
     print(f"\nNext steps:")

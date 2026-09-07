@@ -9,7 +9,7 @@ Downloads total column O3 and NO2 from the SAOZ network
 
     http://saoz.obs.uvsq.fr/saoz/O3_YYYY.STATIONCODE
 
-Just set the `YEAR` you want — it downloads the **entire year** in one file (~1 sec)
+Just set the `YEAR` you want - it downloads the **entire year** in one file (~1 sec)
 and automatically converts it to CSV.
 
 Each file contains **one line per day** with two measurements (sunrise + sunset):
@@ -36,7 +36,7 @@ Edit the top of `ground/SAOZ/download_saoz.py`:
 | Variable | Default | Description |
 |---|---|---|
 | `STATION` | `"SK"` | Station code (see table below) |
-| `YEAR` | `2021` | Year to download — edit before each run |
+| `YEAR` | `2021` | Year to download - edit before each run |
 | `BASE_URL` | `"http://saoz.obs.uvsq.fr/saoz"` | SAOZ data server |
 | `OUT_DIR` | `ground/SAOZ/saoz_data/` (relative to the script itself, so it's safe to run from any working directory) | Output directory |
 
@@ -65,5 +65,5 @@ Edit the top of `ground/SAOZ/download_saoz.py`:
 python ground/SAOZ/download_saoz.py
 ```
 
-No login required — data is public. The raw file is saved and the CSV is
+No login required - data is public. The raw file is saved and the CSV is
 generated automatically.

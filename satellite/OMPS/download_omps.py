@@ -1,5 +1,5 @@
 """
-OMPS (Suomi-NPP / NOAA-21) — Download ozone data for Sodankyla FMI
+OMPS (Suomi-NPP / NOAA-21) - Download ozone data for Sodankyla FMI
 
 Products:
   - NMTO3 (Suomi-NPP) : Total column ozone
@@ -159,7 +159,7 @@ def main():
     start_dt = datetime.strptime(DATE_START, "%Y-%m-%d").date()
     end_dt   = datetime.strptime(DATE_END,   "%Y-%m-%d").date()
 
-    print("=== OMPS Download — Sodankyla FMI ===\n")
+    print("=== OMPS Download - Sodankyla FMI ===\n")
     print(f"  Period: {DATE_START} -> {DATE_END}")
     print(f"  Site:   {LAT_SITE}N  {LON_SITE}E  ±{DELTA}°\n")
 

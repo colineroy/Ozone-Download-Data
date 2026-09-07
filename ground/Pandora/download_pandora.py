@@ -1,5 +1,5 @@
 """
-PGN Pandonia — Download ozone total column data for a date range.
+PGN Pandonia - Download ozone total column data for a date range.
 
 API: https://api.pandonia-global-network.org/v1
 Docs: https://www.pandonia-global-network.org/services/api/
@@ -49,7 +49,7 @@ def main():
     start_dt = datetime.strptime(DATE_START, "%Y-%m-%d")
     end_dt   = datetime.strptime(DATE_END,   "%Y-%m-%d")
 
-    print(f"=== Pandonia Download — {SITE} ===\n")
+    print(f"=== Pandonia Download - {SITE} ===\n")
     print(f"  Period: {DATE_START} -> {DATE_END}\n")
 
     count = 0

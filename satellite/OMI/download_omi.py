@@ -1,5 +1,5 @@
 """
-OMI (Aura) — Download ozone data for Sodankyla FMI
+OMI (Aura) - Download ozone data for Sodankyla FMI
 
 Products:
   - OMDOAO3 : Total column ozone (Level 2)
@@ -146,7 +146,7 @@ def ensure_omi_avdc():
 
 
 def main():
-    print("=== OMI (Aura) Download — Sodankyla FMI ===\n")
+    print("=== OMI (Aura) Download - Sodankyla FMI ===\n")
     print(f"  Period: {DATE_START} -> {DATE_END}")
     print(f"  Site:   {LAT_SITE}N  {LON_SITE}E  ±{DELTA}°\n")
 

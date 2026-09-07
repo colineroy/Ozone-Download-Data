@@ -10,7 +10,7 @@ data portal. There is no automated download script.
 
 URL: https://www.ilmatieteenlaitos.fi/havaintojen-lataus?fmisid=101932
 
-(FMI redesigned their download portal in 2026 — the old `hav.fmi.fi`
+(FMI redesigned their download portal in 2026 - the old `hav.fmi.fi`
 domain no longer resolves. The exact click-through steps below are from
 the previous portal and may need re-checking against the new one; the
 station is still Sodankylä Tähtelä, FMISID=101932.)
@@ -88,7 +88,7 @@ FMISID;LPNN;OBSDATE_UTC;OBSTIME_UTC;...;OZONE #37 (DU);OZONE #214 (DU);...
 
 ## Other scripts in this folder
 
-- **`brewer_woudc_export.py`** — converts the EUBREWNET L1.5 archive files
+- **`brewer_woudc_export.py`** - converts the EUBREWNET L1.5 archive files
   above into WOUDC TotalOzone extCSV format (one file per brewer/year-month),
   writing to `woudc_totalozone/`. Reads both the `SDK_<year>_...` and the
   per-instrument `<brewerid>_<year>_...` file conventions from

@@ -9,13 +9,13 @@ Two complementary data sources for total column O3 at Sodankyla:
 
 ## Source 1: NRT (EUMETSAT Data Store)
 
-Collection: `EO:EUM:DAT:METOP:NTO` — Near Real-Time Total Column O3
+Collection: `EO:EUM:DAT:METOP:NTO` - Near Real-Time Total Column O3
 
 **Note:** despite the collection name, the downloaded HDF5 files (`S-O3M_GOME_O3-NO2-...`) are
 multi-product files that also contain the **vertical ozone profile**
 (`/DETAILED_RESULTS/O3/O3Profile` + `/DETAILED_RESULTS/O3/O3ProfilePressure`). There is no
 separate GOME-2 profile collection on the EUMETSAT Data Store, and no offline/historical
-archive for the profile product — only the rolling ~60-day NRT window gives profile data.
+archive for the profile product - only the rolling ~60-day NRT window gives profile data.
 The AVDC archive below (source 2) is total column only.
 
 ### Prerequisites
@@ -33,13 +33,13 @@ Edit the top of `satellite/GOME2/gome2_download.py`:
 | `LAT` | `67.37` | Station latitude |
 | `LON` | `26.63` | Station longitude |
 | `DELTA` | `0.5` | Bounding box half-width (degrees) |
-| `DATE_START` | edit before each run | Start date (YYYY-MM-DD) — capped by the ~60-day NRT retention, so keep it recent |
+| `DATE_START` | edit before each run | Start date (YYYY-MM-DD) - capped by the ~60-day NRT retention, so keep it recent |
 | `DATE_END` | edit before each run | End date (YYYY-MM-DD), typically today |
 | `COLLECTION_ID` | `"EO:EUM:DAT:METOP:NTO"` | EUMETSAT collection |
 
 ### Output
 
-`satellite/GOME2/GOME2_data/` — HDF5 files with original filenames.
+`satellite/GOME2/GOME2_data/` - HDF5 files with original filenames.
 Ozone in DU (no conversion needed).
 
 ---
@@ -58,9 +58,9 @@ https://avdc.gsfc.nasa.gov/pub/data/satellite/MetOp/GOME2/V03/L2OVP/
 
 | Satellite | File | Period |
 |---|---|---|
-| MetOp-A (GOME-2A) | `GOME2A/gome2a_l2ovp_sodankyla.txt` | 2007-01-23 — 2021-11-09 (decommissioned) |
-| MetOp-B (GOME-2B) | `GOME2B/gome2b_l2ovp_sodankyla.txt` | 2013-01-02 — 2019-02-03 |
-| MetOp-C (GOME-2C) | `GOME2C/gome2c_l2ovp_sodankyla.txt` | 2019-01-20 — present |
+| MetOp-A (GOME-2A) | `GOME2A/gome2a_l2ovp_sodankyla.txt` | 2007-01-23 - 2021-11-09 (decommissioned) |
+| MetOp-B (GOME-2B) | `GOME2B/gome2b_l2ovp_sodankyla.txt` | 2013-01-02 - 2019-02-03 |
+| MetOp-C (GOME-2C) | `GOME2C/gome2c_l2ovp_sodankyla.txt` | 2019-01-20 - present |
 
 ### Columns (space-separated)
 
@@ -83,7 +83,7 @@ https://avdc.gsfc.nasa.gov/pub/data/satellite/MetOp/GOME2/V03/L2OVP/
 | `VCD_OCLO` / `VCD_SO2` | Other trace gases (after O3) | various |
 
 (Column order verified against a live sample file's own header, which is
-self-documenting — check it directly if in doubt.)
+self-documenting - check it directly if in doubt.)
 
 Fill values: `-1.0000e+00` for O3, other gases similar.
 
